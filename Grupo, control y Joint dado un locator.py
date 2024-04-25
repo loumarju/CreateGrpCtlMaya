@@ -53,8 +53,9 @@ class CreateAndRenameWindow(object):
         cmds.parent(joint, control)
         cmds.parent(control, group)
 
-        # Reset the transformations of the joint and control
+        # Reset the transformations of the joint and control and parent the joint to the World
         cmds.xform(joint, objectSpace=True, translation=(0, 0, 0))
         cmds.xform(control, objectSpace=True, translation=(0, 0, 0))
+        cmds.parent(joint,world=True)
         
 CreateAndRenameWindow.show()
